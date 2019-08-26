@@ -20,7 +20,6 @@ namespace async_await_test
         {
             MyAwaitableClass class1 = new MyAwaitableClass();
             await class1;
-
         }
     }
 }

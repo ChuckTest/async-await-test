@@ -8,5 +8,9 @@ namespace async_await_test
 {
     public class MyAwaitableClass
     {
+        public void GetAwaiter()
+        {
+
+        }
     }
 }
