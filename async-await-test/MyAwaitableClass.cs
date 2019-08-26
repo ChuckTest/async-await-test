@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace async_await_test
 {
+    public class MyAwaiter
+    {
+
+    }
+
     public class MyAwaitableClass
     {
-        public void GetAwaiter()
+        public MyAwaiter GetAwaiter()
         {
-
+            return new MyAwaiter();
         }
     }
 }
