@@ -52,6 +52,7 @@
     <Compile Include="CustomConsole.cs" />
     <Compile Include="Demo2Test.cs" />
     <Compile Include="DemoTest.cs" />
+    <Compile Include="ExceptionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
