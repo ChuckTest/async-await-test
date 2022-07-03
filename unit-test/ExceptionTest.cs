@@ -13,17 +13,32 @@ namespace unit_test
     {
         static async void f()
         {
-            await h();
+            try
+            {
+                await h();
+            }
+            catch
+            {
+                CustomConsole.WriteLine("Exception caught in f()");
+                throw;
+            }
         }
 
         static async Task g()
         {
-            await h();
+            try
+            {
+                await h();
+            }
+            catch
+            {
+                CustomConsole.WriteLine("Exception caught in g()");
+                throw;
+            }
         }
 
         static async Task h()
         {
-            //await Task.Delay(1000);
             throw new NotImplementedException();
         }
 
@@ -32,24 +47,24 @@ namespace unit_test
         {
             try
             {
-                f();
+               f();
             }
-            catch (Exception ex)
+            catch
             {
-                CustomConsole.WriteLine(ex.ToString());
+                CustomConsole.WriteLine("Exception caught in button1_Click()");
             }
         }
 
         [Test]
-        public void button2_Click()
+        public async Task button2_Click()
         {
             try
             {
-                g();
+                await g();
             }
-            catch (Exception ex)
+            catch
             {
-                CustomConsole.WriteLine(ex.ToString());
+                CustomConsole.WriteLine("Exception caught in button2_Click()");
             }
         }
 
@@ -60,9 +75,9 @@ namespace unit_test
             {
                 GC.Collect();
             }
-            catch (Exception ex)
+            catch
             {
-                CustomConsole.WriteLine(ex.ToString());
+                CustomConsole.WriteLine("Exception caught in button3_Click()");
             }
         }
     }
