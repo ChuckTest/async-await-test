@@ -20,6 +20,7 @@ namespace AsyncExceptionTest
 
         public async Task<double> GetValue2()
         {
+            await Task.Delay(1000);
             throw new InvalidOperationException("Couldn't get value!");
         }
     }
