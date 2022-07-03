@@ -1,0 +1,1 @@
+﻿test Demystify method which introduced by Ben.Demystifier
