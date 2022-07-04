@@ -29,7 +29,7 @@ namespace unit_test
         {
             try
             {
-                await Task.Delay(2000);
+                //await Task.Delay(2000);
                 throw new Exception("Test exception");
             }
             catch
