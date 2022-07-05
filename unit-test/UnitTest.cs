@@ -37,5 +37,42 @@ namespace unit_test
             button1_Click();
             CustomConsole.WriteLine("Hello world");
         }
+
+        [Test]
+        public void Test2022_0705_002()
+        {
+            var threadCount = 5;
+            var batchSize = 30;
+            List<Task> tasks = new List<Task>();
+            for (int i = 0; i < threadCount; i++)
+            {
+                tasks.Add(ExecuteActionOrderV9( i, batchSize));
+            }
+
+            string result = string.Empty;
+            if (tasks.Count > 0)
+            {
+                Task.WaitAll(tasks.ToArray());
+                var taskT = tasks.Select(x => ((Task<string>)x));
+                result = string.Join(Environment.NewLine, taskT.Select(x => x.Result));
+            }
+
+            Console.WriteLine(result);
+        }
+
+        public async Task<string> ExecuteActionOrderV9(int index, int batchSize)
+        {
+            var val = await Task.Run(async () =>
+            {
+                //Console.WriteLine($"");
+                var threadCount = 5;
+                var sleepTime = (threadCount - index) * 1000;
+                await Task.Delay(sleepTime);
+
+                string str = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fffzzz} ,{nameof(index)} = {index}";
+                return str;
+            });
+            return val;
+        }
     }
 }
