@@ -55,6 +55,7 @@
     <Compile Include="DevExpressTest.cs" />
     <Compile Include="ExceptionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
