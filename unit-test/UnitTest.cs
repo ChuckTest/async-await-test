@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
@@ -69,7 +70,7 @@ namespace unit_test
                 var sleepTime = (threadCount - index) * 1000;
                 await Task.Delay(sleepTime);
 
-                string str = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fffzzz} ,{nameof(index)} = {index}";
+                string str = $"{nameof(index)} = {index}, ThreadId = {Thread.CurrentThread.ManagedThreadId}, {DateTime.Now:yyyy-MM-dd HH:mm:ss.fffzzz}";
                 return str;
             });
             return val;
