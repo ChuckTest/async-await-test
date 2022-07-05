@@ -17,7 +17,7 @@ namespace AsyncExceptionTest
 
         private static async Task DoSomethingAsync()
         {
-            await Task.Delay(3000); // simulate job
+            await Task.Delay(2000); // simulate job
 
             Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fffzzz} DoSomethingAsync is done");
 
@@ -26,7 +26,7 @@ namespace AsyncExceptionTest
 
         private static async Task DoSomething2Async()
         {
-            await Task.Delay(3000); // simulate job
+            await Task.Delay(1000); // simulate job
 
             Console.WriteLine($"{DateTime.Now:yyyy-MM-dd HH:mm:ss.fffzzz} DoSomething2Async is done");
         }
